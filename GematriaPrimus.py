@@ -12,46 +12,8 @@ primes=(2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,1
 latin=["F", "U","TH","O","R","K","G","W","H","N","I","J","EO","P","X","Z","T","B","E",
        "M","L","ING","OE","D","A","AE","Y","IA","EA"]
 def prime_to_latin(prime):
-    '''
-    defines a mapping from the primes to their latin char, according to the GP
-    raises exception if input is NOT prime or in list
-    '''
-    
-    mapping = {
-        2:  ,
-        3:  "U",
-        5:  "TH",
-        7:  "O",
-        11: "R",
-        13: "K",
-        17: "G",
-        19: "W",
-        23: "H",
-        29: "N",
-        31: "I",
-        37: "J",
-        41: "EO",
-        43: "P",
-        47: "X",
-        53: "Z",
-        59: "T",
-        61: "B",
-        67: "E",
-        71: "M",
-        73: "L",
-        79: "ING",
-        83: "OE",
-        89: "D",
-        97: "A",
-        101:"AE",
-        103:"Y",
-        107:"IA",
-        109:"EA"}
-    try:
-        return mapping[prime]
-    except KeyError as e:
-        print(e," IS NOT IN THE MAPPING" )
-        raise e
+    mapping = dict(zip(primes, latin))
+    return mapping[prime]
 
 def latin_to_prime(latin):
     mapping = {
@@ -132,45 +94,8 @@ def prime_to_rune(prime):
         raise e	
 
 def rune_to_prime(rune):
-    '''
-    defines the mapping from primes runic charaters according to the GP.
-    Raises an exception if the input is NOT prime
-    '''
-    mapping = {
-        "ᚠ":2,
-        "ᚢ":3,
-        "ᚦ":5,
-        "ᚩ":7,
-        "ᚱ":11,
-        "ᚳ":13,
-        "ᚷ":17,
-        "ᚹ":19,
-        "ᚻ":23,
-        "ᚾ":29,
-        "ᛁ":31,
-        "ᛄ":37,
-        "ᛇ":41,
-        "ᛈ":43,
-        "ᛉ":47,
-        "ᛋ":53,
-        "ᛏ":59,
-        "ᛒ":61,
-        "ᛖ":67,
-        "ᛗ":71,
-        "ᛚ":73,
-        "ᛝ":79,
-        "ᛟ":83,
-        "ᛞ":89,
-        "ᚪ":97,
-        "ᚫ":101,
-        "ᚣ":103,
-        "ᛡ":107,
-        "ᛠ":109}
-    try:
-        return mapping[rune]
-    except KeyError as e:
-        print(e," IS NOT IN THE MAPPING" )
-        raise e	
+    mapping = dict(zip(runes, primes))
+    return mapping[rune]
 
 def rune_to_seq(rune,zero=False):
     '''
